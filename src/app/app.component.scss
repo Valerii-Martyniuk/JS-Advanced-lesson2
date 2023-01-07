@@ -1,0 +1,36 @@
+.container {
+  max-width: 1000px;
+  background-color: gray;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.column {
+  width: 450px;
+  min-height: 400px;
+  background-color: silver;
+  margin: 20px;
+}
+
+table {
+  margin: 0 auto;
+  width: 90%;
+}
+.section {
+  width: 90%;
+  margin: 10px auto;
+}
+input {
+  width: 100%;
+}
+td {
+  padding: 0 5px;
+}
+tr {
+  height: 30px;
+}
+.error {
+  border: 2px solid red;
+  outline: none;
+}

@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="left-column column">
+    <div class="section">
+      <h3>Login</h3>
+      <input
+        type="text"
+        [(ngModel)]="login"
+        (input)="test()"
+        [ngClass]="{ error: isClassLogin === 1 }"
+      />
+    </div>
+    <div class="section">
+      <h3>Password</h3>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        (input)="testPass()"
+        [ngClass]="{ error: isClassPassword === 1 }"
+      />
+    </div>
+    <div class="section">
+      <h3>Email address</h3>
+      <input
+        type="text"
+        [(ngModel)]="email"
+        (input)="testEmail()"
+        [ngClass]="{ error: isClassEmail === 1 }"
+      />
+    </div>
+    <div class="section">
+      <input
+        type="button"
+        [value]="isChenge ? 'Chenge User' : 'Add User'"
+        (click)="addUser()"
+        [disabled]="
+          isClassEmail === 2 && isClassPassword === 2 && isClassLogin === 2
+            ? false
+            : true
+        "
+      />
+    </div>
+  </div>
+  <div class="right-column column">
+    <table>
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Login</td>
+          <td>Password</td>
+          <td>Email</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of arrUsers; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.login }}</td>
+          <td>{{ user.password }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button (click)="editUser(i)" [disabled]="isChenge">Edit</button>
+          </td>
+          <td>
+            <button (click)="deletName(i)" [disabled]="isChenge">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
